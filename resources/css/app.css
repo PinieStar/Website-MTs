@@ -1,0 +1,379 @@
+@import 'tailwindcss';
+@import './public.css';
+
+@plugin '@tailwindcss/forms';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+
+/*
+|--------------------------------------------------------------------------
+| Token Desain — MTs NU Al Syairiyah
+|--------------------------------------------------------------------------
+| Sumber: Design-Admin-Panel.md bagian 2 + Design.md (Astro) bagian 3–4.
+| Tailwind v4 memakai konfigurasi CSS-first lewat @theme, bukan
+| tailwind.config.js.
+*/
+@theme {
+    /* Tipografi */
+    --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-display: 'Bricolage Grotesque', 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+
+    /* Warna brand */
+    --color-teal-950: #042f2e;
+    --color-teal-900: #134e4a;
+    --color-teal-700: #0f766e;
+    --color-teal-300: #5eead4;
+    --color-teal-50: #f0fdfa;
+
+    --color-paper: #f6f4ee;
+    --color-bone: #fbfaf6;
+    --color-gold: #c9a24b;
+    --color-gold-soft: #e7d8b0;
+    --color-ink: #0b1f1e;
+    --color-ink-soft: #4b6362;
+    --color-line: #e2ded2;
+    --color-line-soft: #ece8dd;
+    --color-teal-deep: #042f2e;
+    --color-teal-mid: #134e4a;
+    --color-teal-bright: #0f766e;
+    --color-mint: #f0fdfa;
+
+    /* Warna fungsional khusus panel admin */
+    --color-danger: #dc2626;
+    --color-success: #15803d;
+
+    /* Token semantik panel admin (nilainya berganti mengikuti tema, lihat bawah) */
+    --color-brand: #042f2e;          /* latar tombol/ikon utama */
+    --color-brand-hover: #0f766e;
+    --color-on-brand: #ffffff;       /* teks di atas brand */
+    --color-gold-text: #7a5c14;      /* teks emas yang terbaca di latar terang */
+    --color-danger-text: #b91c1c;    /* teks merah yang terbaca di latar kartu */
+    --color-success-text: #15803d;
+
+    /* Tipografi publik */
+    --text-eyebrow: 0.75rem;
+    --text-eyebrow--line-height: 1.4;
+    --text-eyebrow--letter-spacing: 0.18em;
+    --text-eyebrow--font-weight: 700;
+    --text-hero: clamp(2.75rem, 7.4vw, 5.75rem);
+    --text-hero--line-height: 1.12;
+    --text-hero--letter-spacing: -0.035em;
+    --text-display: clamp(2rem, 4.2vw, 3.5rem);
+    --text-display--line-height: 1.16;
+    --text-display--letter-spacing: -0.028em;
+    --text-title: clamp(1.5rem, 2.5vw, 2.125rem);
+    --text-title--line-height: 1.22;
+    --text-title--letter-spacing: -0.02em;
+    --text-card: clamp(1.25rem, 1.8vw, 1.625rem);
+    --text-card--line-height: 1.2;
+    --text-card--letter-spacing: -0.015em;
+    --text-lead: clamp(1.0625rem, 1.5vw, 1.25rem);
+    --text-lead--line-height: 1.65;
+
+    /* Radius publik */
+    --radius-bento: 1.5rem;
+    --radius-bento-sm: 1.25rem;
+    --radius-badge: 0.5rem;
+    --radius-pill: 9999px;
+
+    /* Bayangan khas situs */
+    --shadow-float: 0 10px 30px -12px rgb(4 47 46 / 0.25);
+    --shadow-lift: 0 24px 60px -30px rgb(4 47 46 / 0.38);
+
+    /* Container & ritme publik */
+    --container-page: 80rem;
+    --breakpoint-xs: 22.5rem;
+    --spacing-section: clamp(4.5rem, 9vw, 8rem);
+    --spacing-gutter: clamp(1rem, 4.4vw, 3rem);
+}
+
+@layer base {
+    body {
+        @apply bg-paper text-ink antialiased;
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Konten artikel (TipTap editor & halaman publik)
+|--------------------------------------------------------------------------
+| Kelas yang sama dipakai di editor admin dan halaman detail publik agar
+| hasil HTML terlihat identik.
+*/
+.article-prose,
+.tiptap-content {
+    color: var(--color-ink-soft);
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.tiptap-content {
+    display: flex;
+    flex-direction: column;
+    outline: none;
+}
+
+/* Buat area editable mengisi seluruh kotak editor agar mudah diklik. */
+.tiptap-content > .ProseMirror {
+    flex: 1 1 auto;
+    outline: none;
+}
+
+/*
+ * Jarak antar blok. Memakai :not(:first-child) (bukan * + *) supaya
+ * spesifisitasnya lebih tinggi daripada aturan `margin: 0` pada p di
+ * bawah, sehingga paragraf di halaman publik tetap berjarak seperti
+ * di editor.
+ */
+.article-prose > :not(:first-child),
+.tiptap-content > :not(:first-child),
+.tiptap-content > .ProseMirror > :not(:first-child) {
+    margin-top: 1rem;
+}
+
+.article-prose h2,
+.tiptap-content h2 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-teal-deep);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.article-prose h1,
+.tiptap-content h1 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-teal-deep);
+    font-family: var(--font-display);
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.article-prose h4,
+.tiptap-content h4 {
+    margin-top: 1.25rem;
+    margin-bottom: 0.4rem;
+    color: var(--color-teal-deep);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.article-prose h3,
+.tiptap-content h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-teal-deep);
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.article-prose p,
+.tiptap-content p {
+    margin: 0;
+}
+
+/* Paragraf kosong dari editor (baris kosong yang disengaja) tetap
+   memakan satu baris di halaman publik, sama seperti di editor. */
+.article-prose p:empty {
+    min-height: 1.75em;
+}
+
+.article-prose strong,
+.tiptap-content strong {
+    color: var(--color-ink);
+    font-weight: 700;
+}
+
+.article-prose em,
+.tiptap-content em {
+    font-style: italic;
+}
+
+.article-prose u,
+.tiptap-content u {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.article-prose s,
+.tiptap-content s {
+    text-decoration: line-through;
+}
+
+.article-prose mark,
+.tiptap-content mark {
+    border-radius: 0.2rem;
+    background-color: #fde68a;
+    /* Stabilo selalu berlatar terang, jadi teksnya dibuat gelap tetap. */
+    color: #0b1f1e;
+    padding: 0.05em 0.15em;
+}
+
+.article-prose pre,
+.tiptap-content pre {
+    overflow-x: auto;
+    border-radius: 0.65rem;
+    background: #042f2e;
+    padding: 1rem 1.1rem;
+    color: #e6fffb;
+    font-size: 0.875em;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.article-prose pre code,
+.tiptap-content pre code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+}
+
+.article-prose a,
+.tiptap-content a {
+    color: var(--color-teal-bright);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.article-prose ul,
+.article-prose ol,
+.tiptap-content ul,
+.tiptap-content ol {
+    padding-left: 1.35rem;
+}
+
+.article-prose ul,
+.tiptap-content ul {
+    list-style-type: disc;
+}
+
+.article-prose ol,
+.tiptap-content ol {
+    list-style-type: decimal;
+}
+
+.article-prose li + li,
+.tiptap-content li + li {
+    margin-top: 0.35rem;
+}
+
+.article-prose img,
+.tiptap-content img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem auto;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-float);
+}
+
+.article-prose blockquote,
+.tiptap-content blockquote {
+    margin: 1.5rem 0;
+    border-left: 3px solid var(--color-gold);
+    padding-left: 1rem;
+    color: var(--color-ink-soft);
+    font-style: italic;
+}
+
+.article-prose hr,
+.tiptap-content hr {
+    margin: 2rem 0;
+    border: 0;
+    border-top: 1px solid var(--color-line);
+}
+
+.article-prose code,
+.tiptap-content code {
+    border-radius: 0.35rem;
+    background: var(--color-paper);
+    padding: 0.15rem 0.35rem;
+    font-size: 0.9em;
+}
+
+.tiptap-content p.is-editor-empty:first-child::before {
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    color: var(--color-ink-soft);
+    opacity: 0.65;
+    pointer-events: none;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Panel admin — penyesuaian kontras tema gelap & aturan dasar form
+|--------------------------------------------------------------------------
+| Token paper/bone/ink/line sudah berganti otomatis lewat public.css.
+| Di sini token semantik tambahan ikut berganti supaya tombol, badge, dan
+| teks status tetap terbaca (rasio kontras >= 4.5:1) di kedua tema.
+*/
+html[data-theme='dark'] {
+    --color-brand: #2dd4bf;
+    --color-brand-hover: #5eead4;
+    --color-on-brand: #042f2e;
+    --color-gold-text: #e7c873;
+    --color-danger-text: #fca5a5;
+    --color-success-text: #4ade80;
+}
+
+/* Garis/pembatas di tema gelap dibuat sedikit lebih terang agar kartu, bagian
+   form, dan input mudah dibedakan satu sama lain (hanya di panel admin). */
+html[data-theme='dark'] .admin-app {
+    --color-line: #2e5651;
+    --color-line-soft: #214541;
+}
+
+@layer base {
+    .admin-app :is(
+        input:not([type='checkbox'], [type='radio'], [type='file'], [type='range'], [type='color']),
+        select,
+        textarea
+    ) {
+        background-color: var(--color-bone);
+        color: var(--color-ink);
+        border-color: var(--color-line);
+    }
+
+    .admin-app :is(input[type='checkbox'], input[type='radio']) {
+        background-color: var(--color-bone);
+        border-color: var(--color-ink-soft);
+        color: var(--color-brand);
+    }
+
+    .admin-app ::placeholder {
+        color: var(--color-ink-soft);
+        opacity: 0.75;
+    }
+
+    .admin-app option {
+        background-color: var(--color-bone);
+        color: var(--color-ink);
+    }
+
+    .admin-app :focus-visible {
+        outline: 2px solid var(--color-teal-bright);
+        outline-offset: 2px;
+    }
+}
+
+/* Isi editor di panel admin memakai warna teks utama agar mudah dibaca */
+.admin-app .tiptap-content {
+    color: var(--color-ink);
+}

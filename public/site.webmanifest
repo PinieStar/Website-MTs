@@ -1,0 +1,27 @@
+{
+  "name": "MTs NU Al Syairiyah Limpung",
+  "short_name": "MTs NU Al Syairiyah",
+  "description": "Website resmi MTs NU Al Syairiyah Limpung, Kabupaten Batang.",
+  "lang": "id",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F7F3EA",
+  "theme_color": "#042F2E",
+  "categories": ["education", "school"],
+  "icons": [
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
