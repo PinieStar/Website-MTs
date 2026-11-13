@@ -124,8 +124,8 @@
                 <div wire:key="achievement-card-{{ $achievement->id }}" class="p-4">
                     <div class="flex items-start justify-between gap-3">
                         <div class="min-w-0">
-                            <p class="font-semibold leading-snug text-ink">{{ $achievement->judul }}</p>
-                            <p class="mt-1 text-xs text-ink-soft">
+                            <p class="break-words font-semibold leading-snug text-ink">{{ $achievement->judul }}</p>
+                            <p class="mt-1 break-words text-xs text-ink-soft">
                                 {{ $achievement->penyelenggara ?: 'Penyelenggara belum diisi' }}
                             </p>
                         </div>

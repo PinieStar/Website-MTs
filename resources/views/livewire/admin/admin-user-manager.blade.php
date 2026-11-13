@@ -163,7 +163,7 @@
                 <div wire:key="admin-user-card-{{ $user->id }}" class="p-4">
                     <div class="flex items-start justify-between gap-3">
                         <div class="min-w-0">
-                            <p class="font-semibold leading-snug text-ink">{{ $user->name }}</p>
+                            <p class="break-words font-semibold leading-snug text-ink">{{ $user->name }}</p>
                             <p class="truncate text-xs text-ink-soft">{{ $user->email }}</p>
                             @if ($user->id === auth()->id())
                                 <p class="mt-1 inline-flex items-center gap-1 text-[11px] font-semibold text-teal-bright">
@@ -437,7 +437,7 @@
                                     <x-admin.icon name="user" class="h-3.5 w-3.5" />
                                     Nama
                                 </dt>
-                                <dd class="min-w-0 flex-1 font-medium text-ink">{{ $identityName }}</dd>
+                                <dd class="min-w-0 flex-1 break-words font-medium text-ink">{{ $identityName }}</dd>
                             </div>
                             <div class="flex items-start gap-3 px-5 py-3">
                                 <dt class="flex w-24 shrink-0 items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-ink-soft">

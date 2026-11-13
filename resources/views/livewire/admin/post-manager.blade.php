@@ -150,7 +150,7 @@
 
                         <div class="min-w-0 flex-1">
                             <p class="flex items-start gap-1.5 font-semibold leading-snug text-ink">
-                                <span class="line-clamp-2">{{ $post->judul }}</span>
+                                <span class="line-clamp-2 break-words">{{ $post->judul }}</span>
                                 @if ($post->sematkan)
                                     <x-admin.icon name="star" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold-text" title="Disematkan di beranda" />
                                 @endif

@@ -124,7 +124,7 @@
                         <img class="lightbox__image" alt="" data-lightbox-image draggable="false">
                     </div>
                     <figcaption class="mt-4 flex flex-col gap-2 text-paper sm:flex-row sm:items-center sm:justify-between">
-                        <span class="text-sm text-paper/80" data-lightbox-caption></span>
+                        <span class="break-words text-sm text-paper/80" data-lightbox-caption></span>
                         <span class="text-xs tabular-nums text-paper/50" data-lightbox-counter></span>
                     </figcaption>
                 </figure>

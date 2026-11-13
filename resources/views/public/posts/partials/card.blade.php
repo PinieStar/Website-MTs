@@ -30,11 +30,11 @@
 
     <div class="flex flex-1 flex-col p-5">
         <p class="text-xs font-medium text-ink-soft">{{ $post->tanggalPublishLabel() }}</p>
-        <h2 class="mt-2 line-clamp-2 font-display text-lg font-bold leading-snug text-teal-deep">
+        <h2 class="mt-2 line-clamp-2 break-words font-display text-lg font-bold leading-snug text-teal-deep">
             {{ $post->judul }}
         </h2>
         @if ($post->ringkasan)
-            <p class="mt-2 line-clamp-3 text-sm leading-relaxed text-ink-soft">
+            <p class="mt-2 line-clamp-3 break-words text-sm leading-relaxed text-ink-soft">
                 {{ $post->ringkasan }}
             </p>
         @endif

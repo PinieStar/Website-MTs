@@ -339,11 +339,11 @@
                             </div>
 
                             <div class="min-w-0 flex-1">
-                                <p class="font-semibold leading-snug text-ink">{{ $gallery->album }}</p>
+                                <p class="break-words font-semibold leading-snug text-ink">{{ $gallery->album }}</p>
                                 <p class="mt-0.5 text-xs text-ink-soft">
                                     {{ $gallery->created_at->locale('id')->translatedFormat('d M Y') }}
                                 </p>
-                                <p class="mt-1 line-clamp-2 text-xs text-ink-soft">{{ $gallery->keterangan ?: 'Tanpa keterangan' }}</p>
+                                <p class="mt-1 line-clamp-2 break-words text-xs text-ink-soft">{{ $gallery->keterangan ?: 'Tanpa keterangan' }}</p>
                                 <span class="mt-2 inline-flex items-center rounded-full bg-mint px-2 py-0.5 text-[11px] font-semibold text-teal-bright">
                                     {{ $gallery->images_count }} Foto
                                 </span>

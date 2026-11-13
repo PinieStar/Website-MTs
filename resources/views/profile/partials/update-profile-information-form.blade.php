@@ -13,10 +13,6 @@
         </div>
     </header>
 
-    <form id="send-verification" method="post" action="{{ route('verification.send') }}">
-        @csrf
-    </form>
-
     <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-5">
         @csrf
         @method('patch')
@@ -44,25 +40,6 @@
                 </p>
             </div>
         </div>
-
-        @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
-            <div class="flex items-start gap-2.5 rounded-lg border border-gold/30 bg-gold/10 px-3.5 py-3 text-sm text-ink-soft">
-                <x-admin.icon name="alert" class="mt-0.5 h-4 w-4 shrink-0 text-gold-text" />
-                <div>
-                    <p class="font-medium text-ink">Email Anda belum terverifikasi.</p>
-                    <button form="send-verification"
-                            class="mt-1 text-xs font-semibold text-teal-bright underline underline-offset-2 hover:text-gold-text">
-                        Kirim ulang email verifikasi
-                    </button>
-
-                    @if (session('status') === 'verification-link-sent')
-                        <p class="mt-1.5 text-xs font-medium text-success-text">
-                            Tautan verifikasi baru telah dikirim ke email Anda.
-                        </p>
-                    @endif
-                </div>
-            </div>
-        @endif
 
         <div class="flex flex-wrap items-center gap-3 border-t border-line-soft pt-5">
             <x-primary-button>

@@ -8,7 +8,7 @@
 
 @php($numeric = is_int($value) || is_float($value))
 
-<div class="bento bento-mint relative overflow-hidden p-5 sm:p-6 {{ $class }}" data-stagger-item>
+<div class="bento bento-mint relative overflow-hidden p-5 max-[359px]:p-4 sm:p-6 {{ $class }}" data-stagger-item>
     <div class="flex items-start justify-between gap-4">
         <span class="grid size-9 place-items-center rounded-full bg-teal-deep text-paper/90" aria-hidden="true">
             <x-public.icon :name="$icon" :size="17" />
@@ -29,6 +29,6 @@
                 {{ $value ?? 'Belum tersedia' }}
             </p>
         @endif
-        <p class="mt-3 text-[0.7rem] font-bold uppercase tracking-[0.16em] text-ink-soft">{{ $label }}</p>
+        <p class="mt-3 break-words text-[0.7rem] font-bold uppercase tracking-[0.16em] text-ink-soft max-[359px]:text-[0.6rem] max-[359px]:tracking-[0.06em]">{{ $label }}</p>
     </div>
 </div>

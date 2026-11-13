@@ -22,7 +22,7 @@
             @endif
         </div>
 
-        <h1 class="mt-4 font-display text-3xl font-bold leading-tight text-teal-deep sm:text-4xl">
+        <h1 class="mt-4 break-words font-display text-3xl font-bold leading-tight text-teal-deep sm:text-4xl">
             {{ $post->judul }}
         </h1>
 
@@ -33,7 +33,7 @@
         </p>
 
         @if ($post->ringkasan)
-            <p class="mt-5 max-w-3xl text-base leading-relaxed text-ink-soft sm:text-lg">
+            <p class="mt-5 max-w-3xl break-words text-base leading-relaxed text-ink-soft sm:text-lg">
                 {{ $post->ringkasan }}
             </p>
         @endif

@@ -112,6 +112,8 @@
     color: var(--color-ink-soft);
     font-size: 1rem;
     line-height: 1.75;
+    /* Judul/tautan panjang tanpa spasi tetap membungkus, bukan terpotong. */
+    overflow-wrap: break-word;
 }
 
 .tiptap-content {

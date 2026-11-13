@@ -62,7 +62,7 @@
                             <span class="text-[0.6rem] font-bold uppercase tracking-[0.18em] text-ink-soft">Periode</span>
                         </div>
                         <div>
-                            <p class="whitespace-nowrap font-display text-[clamp(1.5rem,4.2vw,3.25rem)] font-extrabold leading-none tracking-[-0.04em] text-teal-deep">
+                            <p class="break-words font-display text-[clamp(1.5rem,4.2vw,3.25rem)] font-extrabold leading-none tracking-[-0.04em] text-teal-deep">
                                 {{ $years->count() > 1 ? $years->last().' - '.$years->first() : $years->first() }}
                             </p>
                             <p class="mt-2 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-ink-soft sm:text-xs">
@@ -91,7 +91,7 @@
                             </div>
 
                             <div class="flex-1">
-                                <h3 class="text-pretty font-display text-base font-bold leading-snug text-teal-deep sm:text-lg">
+                                <h3 class="break-words text-pretty font-display text-base font-bold leading-snug text-teal-deep sm:text-lg">
                                     {{ $item->judul }}
                                 </h3>
                             </div>
@@ -100,7 +100,7 @@
                                 <span class="tabular-nums">{{ $item->tahun }}</span>
                                 @if ($item->penyelenggara)
                                     <span aria-hidden="true">·</span>
-                                    <span>{{ $item->penyelenggara }}</span>
+                                    <span class="min-w-0 break-words">{{ $item->penyelenggara }}</span>
                                 @endif
                             </p>
                         </article>

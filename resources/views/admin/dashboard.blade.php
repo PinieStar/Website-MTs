@@ -99,7 +99,7 @@
                     @foreach ($draftTerbaru as $post)
                         <div class="flex items-start justify-between gap-3 px-4 py-3">
                             <div class="min-w-0">
-                                <p class="font-medium leading-snug text-ink">{{ $post->judul }}</p>
+                                <p class="break-words font-medium leading-snug text-ink">{{ $post->judul }}</p>
                                 <p class="mt-1 text-xs text-ink-soft">{{ $post->updated_at->diffForHumans() }}</p>
                             </div>
                             <span class="inline-flex shrink-0 items-center rounded-full bg-paper px-2 py-0.5 text-[11px] font-medium capitalize text-ink-soft">
